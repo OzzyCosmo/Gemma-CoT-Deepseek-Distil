@@ -32,8 +32,8 @@ output = data["choices"][0]["message"]
 CoTOutput = output.get("reasoning")
 StdOutput = output.get("content")
 
-with open('DatasetTest.csv', 'w', newline='', encoding='utf-8') as csvfile:
-    writer = csv.writer(csvfile)
+with open('DatasetTest.json', 'w', newline='', encoding='utf-8') as json_file:
+    writer = csv.writer(json_file)
     writer.writerow([StdOutput]) 
 
 if printOutput:
