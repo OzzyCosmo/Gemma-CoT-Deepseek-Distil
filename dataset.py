@@ -1,9 +1,10 @@
 import requests
 import json
 import time
-import csv
 
 printOutput = False
+
+query = "hey"
 
 response = requests.post(
     url="https://openrouter.ai/api/v1/chat/completions",
@@ -17,7 +18,7 @@ response = requests.post(
             {
                 "role": "user",
                 # "content": "What is the probability we will reach AGI by the end of 2027? Estimate as a percentage."
-                "content": "hey"
+                "content": query
             }
         ],
         "reasoning": {
@@ -26,15 +27,16 @@ response = requests.post(
     }
 )
 
+response.raise_for_status()
 
 data = response.json()
 output = data["choices"][0]["message"]
 CoTOutput = output.get("reasoning")
 StdOutput = output.get("content")
+OutputString = f'{{"query": "{query}", "output": "{StdOutput}"}}'
 
-with open('DatasetTest.json', 'w', newline='', encoding='utf-8') as json_file:
-    writer = csv.writer(json_file)
-    writer.writerow([StdOutput]) 
+with open('DatasetTest.json', 'w', encoding='utf-8') as json_file:
+    json.dump({"query": query, "output": StdOutput}, json_file, ensure_ascii=False, indent=2)
 
 if printOutput:
     print("\n\n Outputting reasoning" \

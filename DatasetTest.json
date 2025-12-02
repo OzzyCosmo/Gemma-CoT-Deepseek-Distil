@@ -1,7 +1,4 @@
-"Hey there! 👋 How's it going? What can I do for you today? 😊 
-
-Just let me know what you're thinking or what you need. I'm ready to chat, answer questions, brainstorm, or just be here! 
-
-
-
-"
+{
+  "query": "hey",
+  "output": "Hey there! 👋 How can I help you today?  \n\nJust let me know what you're thinking or what you need! I can:\n\n* **Answer questions:** About pretty much anything!\n* **Generate creative content:** Stories, poems, code, scripts, musical pieces, email, letters, etc.\n* **Translate languages:** \n* **Summarize text:** \n* **Just chat!**\n\nLooking forward to hearing from you. 😊\n\n\n\n"
+}
